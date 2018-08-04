@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Giftastic HW_6</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   
+    
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Gif Search</h1>
+
+        <!-- gifArr buttons -->
+        <div id="buttons-view"></div>
+
+        <!--Search input-->
+        <form id="gif-form">
+            <label for="gif-input">Search</label>
+            <input type="text" id="gif-input">
+            <br>
+
+            <!-- Button triggers new gif to be added -->
+            <input id="add-gif" type="submit" value="Search">
+        </form>
+
+        <!-- Gifs appended here -->
+        <div id="gif-view"></div>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+        
+        var gifArr = ["Happy", "Mad", "Laugh", "Side Eye"];
+        var btn = ($(this).attr("data-name"));
+
+        function renderButtons() {
+
+            $("#buttons-view").empty();
+        
+            for (var i = 0; i < gifArr.length; i++) {
+                // console.log(gifArr[i]);
+                var btn = $('<button>');
+                btn.addClass("gif");
+                btn.attr("data-name", gifArr[i]);
+                btn.text(gifArr[i]);
+                $('#buttons-view').append(btn);
+            }
+            
+        }
+
+        //add button to array
+        function addButton() {
+                $("#add-gif").on("click", function (event) {
+
+                event.preventDefault();
+
+                //console.log($("#gif-input").val());
+                var newGif = $("#gif-input").val();
+                gifArr.push(newGif);
+                $("gif-input")
+            });
+        }
+        
+        $(document).on("click", ".gif", addButton);
+        renderButtons();
+        });
+    </script>
+    </div>
+</body>
+
+</html>
