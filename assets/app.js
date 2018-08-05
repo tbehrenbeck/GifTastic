@@ -4,19 +4,23 @@ $(document).ready(function () {
 
     function renderButtons() {
         $("#gif-buttons").empty();
+        
         for (i = 0; i < gifsArray.length; i++) {
             $("#gif-buttons").append("<button class='btn btn-success' data-gif='" + gifsArray[i] + "'>" + gifsArray[i] + "</button>");
         }
     }
-
     renderButtons();
     
     $("#add-gif").on("click", function() {
+        var newGif = $("#gif-input").val();
+        if (newGif === " ") {
+            alert("Input can not be blank");
+        } else {
         event.preventDefault();
-        var newGif = $("#gif-input").val().trim();
         gifsArray.push(newGif);
         renderButtons();
         return;
+        }
     });
 
     $("button").on("click", function () {
@@ -28,7 +32,7 @@ $(document).ready(function () {
             method: "GET"
         }).then(function(response) {
             var results = response.data
-            $("#gifs").empty();
+            // $("#gifs").empty();
             for (var i = 0; i < results.length; i++) {
                 var gifDiv = $("<div>");
 				var p = $("<p>").text("Rating: " + results[i].rating);
@@ -41,7 +45,7 @@ $(document).ready(function () {
 				gifImg.attr("class", "gif");
 				gifDiv.append(p);
 				gifDiv.append(gifImg);
-				$("#gifs").append(gifDiv);
+				$("#gifs").prepend(gifDiv);
             }
         })
 
