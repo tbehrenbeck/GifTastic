@@ -3,7 +3,7 @@ $(document).ready(function() {
 
     var gifArr = ["Happy", "Mad", "Sad", "Side Eye"];	
   
-    //  create gifArr array buttons
+    //  create array buttons
     function renderButtons(){
       $('#buttons-view').empty();
   
@@ -18,26 +18,24 @@ $(document).ready(function() {
           }    
           renderButtons();
   
-  //on button click
+  
   $(document).on('click', '.giphy', function() {
   
-      //new variable will log the text data from each button
       var searchedGif = $(this).html(); 
       // console.log(searchedGif);
   
       var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchedGif + "&api_key=wLblm7yDyFoA5Am3Mb57uSYm2CRmsUUo&limit=10";
       // console.log(queryURL);
   
-      // Creating an AJAX call for the specific movie button being clicked
+      // Creating an AJAX call for the specific gif button being clicked
       $.ajax({
         url: queryURL,
         method: "GET"
       }).done(function(response) {
   
         var results = response.data;
-          //console.log(results);
-          //empties the div before adding more gifs
-          $('#gifs-view').empty();
+         
+          //$('#gifs-view').empty();
           for ( var j=0; j < results.length; j++) {
                       var imageDiv = $('<div>');
                       var imageView = results[j].images.fixed_height.url;
@@ -54,9 +52,9 @@ $(document).ready(function() {
               // console.log(rating);
           var displayRated= $('<p>').text("Rating: " + rating);
           $('#gifs-view').prepend(displayRated);
-    } // end for loop
+    } 
   
-  }); // done response
+  }); 
   
           //function to stop and animate gifs
           function playGif() { 
@@ -70,9 +68,9 @@ $(document).ready(function() {
                        $(this).attr('data-state', 'still');
                       }
   
-                  } //end of on click function
+                  } 
   
-        }); //end of document on click 
+        });  
   
             //adding new button to array
           $(document).on('click', '#add-gif', function(){
@@ -90,6 +88,7 @@ $(document).ready(function() {
   
           });
                         
-  
-          }); // end click function
+}); 
+
+
   
