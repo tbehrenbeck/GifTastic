@@ -1,7 +1,7 @@
 //Initial array of movies	
 $(document).ready(function() {
 
-    var gifArr = ["Happy", "Mad", "Sad", "Side Eye"];	
+    var gifArr = ["happy", "mad", "sad", "side eye"];	
   
     //  create array buttons
     function renderButtons(){
