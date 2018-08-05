@@ -1,0 +1,58 @@
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.form-group {
+    margin-bottom: .5rem;
+}
+
+.sidenav {
+    height: 100%;
+    width: 184px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+    border-right: 2px solid grey;
+}
+
+h3 {
+    color: white;
+    padding-left: 18px;
+}
+
+#gif-input {
+    margin-left: 5px;
+}
+
+#add-gif {
+    padding-left: 48px;
+    padding-right: 50px;
+    margin: 15px;  
+}
+
+.main {
+    margin-left: 186px;
+    /* Same as the width of the sidenav */
+    font-size: 28px;
+    /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+.giphy {
+    padding: 10px;
+    margin: 4px;
+    width: 95%;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
