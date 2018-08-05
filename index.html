@@ -14,27 +14,32 @@
 
 <body>
 
-    <div class="container">
-        <h1>Gif Search</h1>
+        <div class="container"><br>
 
-        <!-- gifArr buttons -->
-        <div id="gif-buttons"></div>
-
-        <!--Search input-->
-        <div class="container" id="btn" style="background: transparent;">
-                <form id="gif-form">
-                    <label id="add" for="gif-input">Please enter your favortie gif</label>
-                    <input type="text" class="form-control" id="gif-input">
-                    <br>
-                    <br>
-                </form>
-                <button type="button" id="add-gif" class="btn btn-success">Submit</button>
-                <br>
-                <br>
-                <div id="gifs" data-state= "still"> </div>
+            <header class="jumbotron">
+                <h1>Title</h1>
+            </header>
+    
+    
+            <!-- Rendered buttons will get dumped Here  -->
+            <div id="buttons-view"></div><br>
+    
+            <!-- Submit movie form -->
+            <form class="navbar-form navbar-right" id="gif-form">
+                <div class="form-group">
+                    <label for="gif-input"><h3>Search Gifs</h3></label>
+                </div>
+                <input type="text" id="gif-input"><br>
+    
+                <!-- Button triggers new movie to be added -->
+                <input id="add-gif" button type="submit" class="btn btn-deafult" value="Submit">
+            </form>
+    
+            <!-- Gifs will get dumped dere -->
+            <div id="gifs-view" data-state="still"></div>
+    
         </div>
-
-    </div>
+        
 
     <script type= "text/javascript" src="assets/app.js"></script>
 </body>
