@@ -5,19 +5,17 @@ $(document).ready(function() {
   
     //  create array buttons
     function renderButtons(){
-      $('#buttons-view').empty();
+        $('#buttons-view').empty();
   
-      for (var i = 0; i < gifArr.length; i++) {
-              //create all buttons
-              var a = $('<button>');
-              a.addClass('giphy');
-              a.attr('data-name', gifArr[i]);
-              a.text(gifArr[i]);
-              $('#buttons-view').append(a);
-            }
-          }    
-          renderButtons();
-  
+        for (var i = 0; i < gifArr.length; i++) {
+            var a = $('<button>');
+            a.addClass('giphy');
+            a.attr('data-name', gifArr[i]);
+            a.text(gifArr[i]);
+            $('#buttons-view').append(a);
+        }
+    }    
+    renderButtons();
   
   $(document).on('click', '.giphy', function() {
   
@@ -35,23 +33,26 @@ $(document).ready(function() {
   
         var results = response.data;
          
-          //$('#gifs-view').empty();
-          for ( var j=0; j < results.length; j++) {
-                      var imageDiv = $('<div>');
-                      var imageView = results[j].images.fixed_height.url;
-                      var still = results[j].images.fixed_height_still.url;
+        //$('#gifs-view').empty();
+        for ( var j=0; j < results.length; j++) {
+                    var imageDiv = $('<div>');
+                    var imageView = results[j].images.fixed_height.url;
+                    var still = results[j].images.fixed_height_still.url;
                           // console.log(imageView);  
-  
+        
+        var gifDiv = $("<div>");
+        var rating = results[j].rating;
+        var displayRated= $('<p>').text("Rating: " + rating);
+
           var gifImage = $('<img>').attr("src", still).attr('data-animate', imageView).attr('data-still', still);
                       gifImage.attr('data-state', 'still');
-                      $('#gifs-view').prepend(gifImage);
                       gifImage.on('click', playGif);
   
-          // Pulling ratings for each movie
-          var rating = results[j].rating;
-              // console.log(rating);
-          var displayRated= $('<p>').text("Rating: " + rating);
-          $('#gifs-view').prepend(displayRated);
+          gifDiv.append(gifImage);
+          gifDiv.append(displayRated);
+
+
+          $('#gifs-view').prepend(gifDiv);
     } 
   
   }); 
