@@ -1,7 +1,7 @@
-//Initial array of movies	
+//Initial array of gifs	
 $(document).ready(function() {
 
-    var gifArr = ["happy", "mad", "sad", "side eye"];	
+    var gifArr = ["eye roll", "lol", "shrugs", "wink"];	
   
     //  create array buttons
     function renderButtons(){
@@ -79,8 +79,8 @@ $(document).ready(function() {
                 alert('Input can not be left blank');
              }
              else {
-              var movies = $('#gif-input').val().trim();
-              gifArr.push(movies);
+              var giphies = $('#gif-input').val().trim();
+              gifArr.unshift(giphies);
               $('#gif-input').val('');
               renderButtons();
               return false;
