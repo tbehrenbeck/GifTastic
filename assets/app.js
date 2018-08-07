@@ -1,7 +1,7 @@
 //Initial array of gifs	
 $(document).ready(function() {
 
-    var gifArr = ["eye roll", "lol", "shrugs", "wink"];	
+    var gifArr = ["eye roll", "lol", "shrugs", "wink", "smile"];	
   
     //  create array buttons
     function renderButtons(){
@@ -40,7 +40,7 @@ $(document).ready(function() {
                     var still = results[j].images.fixed_height_still.url;
                           // console.log(imageView);  
         
-        var gifDiv = $("<div>");
+        var gifDiv = $("<div class= 'wrapper'>");
         var rating = results[j].rating;
         var displayRated= $('<p>').text("Rating: " + rating);
 

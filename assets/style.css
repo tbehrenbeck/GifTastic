@@ -56,3 +56,8 @@ h3 {
         font-size: 18px;
     }
 }
+
+.wrapper {
+    float: left;
+    margin: 5px;
+}
